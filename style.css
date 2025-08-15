@@ -1,103 +1,121 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
-.first{
-    top: 0px;
-    position: absolute;
+
+.first {
+    top: 0;
+    position: absolute; /* sidebar fixed on desktop */
     display: flex;
     width: 200px;
     justify-content: left;
     align-items: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 0px 40px 40px 0px ;
-    height: 105vh;
+    border-radius: 0px 40px 40px 0px;
+    height: 100vh;
     z-index: 1000;
     background-color: #f5f7fa;
     color: #2d3436;
+    flex-wrap: wrap;
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     list-style: none;
-    margin-left: 50px;
-    margin-right: 50px;
     gap: 20px;
+    flex-wrap: wrap;
 }
-#home{
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
-   height: 100vh;
-   gap: 30px;
-   margin: 20px;
-   border-radius: 0px 40px 40px 0px;
-   background-color: #ddb9a3;
-   color: #FFFF;
-   margin-left: 20px;
-   margin-right: 20px;
+
+#home {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 100vh;
+    gap: 30px;
+    margin: 20px;
+    border-radius: 0px 40px 40px 0px;
+    background-color: #ddb9a3;
+    color: #FFF;
+    margin-left: 220px; /* space for sidebar */
+    margin-right: 20px;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
-#about{
+
+#about {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px ;
+    border-radius: 50px;
+    background-color: #d7ced3;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
     flex-wrap: wrap;
     width: 100%;
     font-size: 20px;
-    border-radius: 50px;
-    background-color: #d7ced3;
-   box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    padding: 20px;
 }
-#services{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-}
-.service-list{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 30px;
 
+#services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     border: 1px solid black;
     align-items: center;
+    width: 100%;
+}
+
+.service-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
     flex-direction: column;
 }
-.service-item{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 50px;
-   flex-direction: column;
-}
-.heading{
+
+.heading {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 100px;
+    flex-wrap: wrap;
 }
 
-.character{
-    top: -0;
-    position: absolute;
+.character {
+    top: 0;
+    position: relative; /* changed to avoid overlap on mobile */
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+}
 
+.character img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
 }
-.character img{
-    width: 600px;
-}
+
 .hire-btn {
     display: inline-block;
-    background-color: #b89278; /* Theme ke beige shade ke saath match */
+    background-color: #b89278;
     color: white;
     padding: 12px 28px;
     border-radius: 30px;
@@ -107,39 +125,109 @@ flex-direction: column;
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
-  }
-  
-  .hire-btn:hover {
-    background-color: #a47a63; /* Thoda dark hover shade */
+}
+.hire-btn:hover {
+    background-color: #a47a63;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     transform: translateY(-2px);
-  }
-  .image-wrapper {
-    width: 450px;
-    height: 450px;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1 / 1; /* keeps circle shape */
     border-radius: 50%;
     overflow: hidden;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     transform-style: preserve-3d;
-  }
-  
-  .image-wrapper img {
+}
+
+.image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; /* image click na ho */
-  }
-  li a {
+    pointer-events: none;
+}
+
+li a {
     color: black;
     text-decoration: none;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 5px;
     cursor: pointer;
     border-radius: 10px;
-  }
-  li a:hover{
+}
+li a:hover {
     color: #FFF;
     background-color: #a47a63;
     transition: all ease 1s;
-  }
+}
 
+/* Tablet */
+@media (max-width: 900px) {
+    .first {
+        width: 150px;
+    }
+    #home {
+        margin-left: 170px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .service-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .character img {
+        max-width: 400px;
+    }
+    .image-wrapper {
+        max-width: 300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .heading{
+        margin-right: 150px;
+    }
+
+    .first {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+    }
+    .navbar {
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    #home {
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+    .character img {
+        max-width: 250px
+    }
+    .image-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    .image-wrapper {
+        width: 200px;
+        height: 200px;
+        margin-right: 150px;
+    }
+    .character {
+        justify-content: center; /* center image in flex container */
+    }
+}
