@@ -230,4 +230,8 @@ li a:hover {
     .character {
         justify-content: center; /* center image in flex container */
     }
+    .footer{
+        display: none;
+    }
+
 }
